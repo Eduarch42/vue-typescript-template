@@ -30,6 +30,15 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        include: [
+          // Use `include` vs `exclude` to whitelist vs blacklist
+          path.resolve(__dirname, 'src'), // Whitelist your app source files
+          require.resolve('bootstrap-vue') // Whitelist `bootstrap-vue`
+        ],
+        loader: 'babel-loader'
+      },
+      {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig

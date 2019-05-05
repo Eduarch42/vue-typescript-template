@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <b-button variant="danger" @click="sayMsg">Reverse Text</b-button>
     <ul>
       <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
       <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
@@ -26,12 +27,22 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js PWA'
     }
+  },
+    methods: {
+      sayMsg() {
+        this.msg = this.msg.split('').reverse().join('')
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
+button {
+  color: #ffaa1c;
+
+}
+
 h1, h2 {
   font-weight: normal;
 }
